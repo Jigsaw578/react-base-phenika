@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Modal, Table } from 'antd';
+import { Avatar, Modal, Table, Tag } from 'antd';
 // import { useDebounce } from 'use-debounce';
 import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons'
 import styled from 'styled-components';
@@ -84,9 +84,9 @@ const UserTable = (props) => {
             dataIndex: 'status',
             key: 'status',
             render: (text, useDataDevices) => (
-                <td class="ant-table-cell" scope="col">
-                    {(useDataDevices.blocked == false) ? "Active" : "Inactive"}
-                </td>
+                <span>
+                    {(useDataDevices.blocked == false) ? <Tag color={'green'} key={'active'}> Active </Tag> : <Tag color={'volcano'} key={'active'}> Inactive </Tag>}
+                </span>
             )
         },
         {

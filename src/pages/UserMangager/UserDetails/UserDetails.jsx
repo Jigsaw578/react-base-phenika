@@ -74,7 +74,7 @@ export default function UserDetails({ userId }) {
     const handleOk = async () => {
         await axiosInstance.delete(`users/${id}`)
         setIsModalOpen(false);
-        navigate("/dashboard/users")
+        navigate("/dashboard/users_list")
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -158,7 +158,7 @@ export default function UserDetails({ userId }) {
                                 color: "#F1F4F9"
                             }}
                             onClick={() => {
-                                navigate(`/dashboard/users/edit/${id}`);
+                                navigate(`/dashboard/users_list/edit/${id}`);
                             }}
                         >
                             Edit

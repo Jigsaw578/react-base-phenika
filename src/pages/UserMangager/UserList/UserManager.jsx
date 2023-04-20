@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import { Button, Col, Input, Pagination, Row, Select, Space, Table, theme } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Input, Row, Select, Space, Table, notification, theme } from "antd";
 // import { useDebounce } from 'use-debounce';
 import styled from "styled-components";
 import { SearchOutlined, ShrinkOutlined } from "@ant-design/icons";
 import UserTable from "./UserTable";
 import { useLocation, useNavigate } from "react-router";
-const options = [{
-    value: '0',
-    label: 'Active',
-}, {
-    value: '1',
-    label: 'Inactive',
-},];
-const handleChange = (value) => {
-    console.log(`Selected: ${value}`);
-};
-
+const options = [
+    {
+        value: '0',
+        label: 'Active',
+    },
+    {
+        value: '1',
+        label: 'Inactive',
+    }
+];
 const UserLayout = styled.div`
     display:flex;
     justify-content:'space-evenly';
@@ -26,13 +25,13 @@ const UserLayout = styled.div`
     }
     .ant-space-compact .ant-select-compact-item .ant-select-selector{
         border-right:none;
-        width:120px
+        width:120px;
     }
     .ant-space-compact .ant-input-compact-last-item{
-        border:none !important 
+        border:none !important; 
     }
     .ant-space-compact .ant-select-compact-item .ant-select-selector{
-        border:none !important 
+        border:none !important; 
     }
     .ant-space-compact .ant-select-compact-item .ant-select-arrow{
         padding-right:10px;
@@ -64,7 +63,8 @@ function UserManager() {
     const [selectedValue, setSelectedValue] = useState('fullname');
     const [keyWord, setKeyWord] = useState('');
     const [blocked, setBlocked] = useState(0);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     // const [debouncedSearchTerm] = useDebounce(keyWord, 500);
 
     // const filteredData = data.filter(item =>
@@ -80,7 +80,6 @@ function UserManager() {
         setKeyWord(event.target.value);
     };
     let location = useLocation();
-    console.log(22, location.pathname);
     return (
         <UserLayout>
             <Content>
@@ -90,7 +89,7 @@ function UserManager() {
                             <h3>All User</h3>
                         </Col>
                         <Col>
-                            <Button style={buttonStyle} onClick={() => { navigate('/dashboard/users_list/create') }}> Add User</Button>
+                            <Button style={buttonStyle} onClick={() => { navigate('/users_list/create') }}> Add User</Button>
                         </Col>
                     </Row>
 
