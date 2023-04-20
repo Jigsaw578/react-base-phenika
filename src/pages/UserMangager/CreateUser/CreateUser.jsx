@@ -446,7 +446,7 @@ const CreateUser = () => {
                           /> */}
                           <List
                             style={{
-                              height: 150,
+                              height: 130,
                               overflowY: "auto",
                             }}
                             dataSource={plainOptions}
@@ -482,7 +482,7 @@ const CreateUser = () => {
                           </p>
                           <Table
                             style={{
-                              height: 150,
+                              height: 130,
                               overflowY: "auto",
                             }}
                             pagination={{ hideOnSinglePage: true }}
